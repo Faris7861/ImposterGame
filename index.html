@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNDERCOVER — a pass-the-phone party game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<main class="stage">
+
+  <!-- SCREEN 1: SETUP -->
+  <section class="screen active" id="screen-setup">
+    <p class="eyebrow">CASE FILE // CLASSIFIED</p>
+    <h1 class="title">UNDER<span class="title-accent">COVER</span></h1>
+    <p class="subtitle">One of you isn't who they say they are.</p>
+
+    <div class="panel">
+      <label class="panel-label" for="player-count">How many agents are in the room?</label>
+      <div class="stepper">
+        <button type="button" class="stepper-btn" id="count-minus" aria-label="Fewer players">&minus;</button>
+        <span class="stepper-value" id="count-value">5</span>
+        <button type="button" class="stepper-btn" id="count-plus" aria-label="More players">+</button>
+      </div>
+      <p class="hint-text">3–12 players</p>
+    </div>
+
+    <button class="btn-primary" id="btn-to-names">Begin Briefing &rarr;</button>
+  </section>
+
+  <!-- SCREEN 2: NAMES -->
+  <section class="screen" id="screen-names">
+    <p class="eyebrow">STEP 2 // AGENT ROSTER</p>
+    <h2 class="title-sm">Name your agents</h2>
+    <p class="subtitle">Type each player's name, in seating order.</p>
+
+    <form class="roster" id="roster-form"></form>
+
+    <button class="btn-primary" id="btn-to-game">Lock In &amp; Deal Cards &rarr;</button>
+    <button class="btn-ghost" id="btn-back-setup">&larr; Back</button>
+  </section>
+
+  <!-- SCREEN 3: REVEAL -->
+  <section class="screen" id="screen-reveal">
+    <p class="eyebrow">STEP 3 // EYES ONLY</p>
+    <p class="pass-to">Pass the phone to</p>
+    <h2 class="pass-name" id="pass-name">—</h2>
+
+    <div class="card-wrap">
+      <button class="dossier" id="dossier" aria-label="Tap to reveal your card">
+        <div class="dossier-face dossier-front">
+          <span class="dossier-tab" id="dossier-tab">01</span>
+          <span class="dossier-title">DOSSIER</span>
+          <span class="dossier-sub">tap to open</span>
+        </div>
+        <div class="dossier-face dossier-back">
+          <p class="reveal-kicker" id="reveal-kicker">THE WORD IS</p>
+          <p class="reveal-word" id="reveal-word">—</p>
+          <p class="reveal-hint" id="reveal-hint"></p>
+        </div>
+        <div class="stamp" id="stamp">CLASSIFIED</div>
+      </button>
+    </div>
+
+    <button class="btn-primary" id="btn-next-player" hidden>Got it — Pass the Phone &rarr;</button>
+  </section>
+
+  <!-- SCREEN 4: DISCUSSION -->
+  <section class="screen" id="screen-discuss">
+    <p class="eyebrow">BRIEFING COMPLETE</p>
+    <h2 class="title-sm highlight">Discuss. Deduce. Expose the imposter.</h2>
+    <p class="subtitle">Everyone got their word except one agent — who only got a hint. Talk it out, then vote out loud who you think it is. Good luck.</p>
+
+    <button class="btn-primary" id="btn-new-round">New Round, Same Agents &rarr;</button>
+    <button class="btn-ghost" id="btn-new-game">Start Over with New Agents</button>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
